@@ -30,7 +30,8 @@
 // Store our API endpoint inside queryUrl
 var queryUrl = 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2019-03-07%2000:00:00&endtime=2019-03-14%2023:59:59&minmagnitude=2.5&orderby=magnitude';
 var mapBoxAttribution = 'Map data &copy; <a href=\"https://www.openlightMap.org/\">OpenlightMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>';
-var tileLayerUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
+var mapBoxtileLayerUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
+var wikiTileUrl = 'https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}.png'
 var earthQuakeData
 
 /** Omar Notes:
@@ -118,7 +119,7 @@ function createFeatures(earthquakeData) {
 
 function createMap(earthquakes) {
 	var noWrap = false;
-	var satMap = L.tileLayer(tileLayerUrl, 	// Query satellite layer from API
+	var satMap = L.tileLayer(mapBoxtileLayerUrl, 	// Query satellite layer from API
 		{ 
 		attribution: mapBoxAttribution,
 		maxZoom: 6,
@@ -128,7 +129,7 @@ function createMap(earthquakes) {
 		accessToken: API_KEY
 		});
 
-	var darkMap = L.tileLayer(tileLayerUrl, 	// Query darkMap Layer from API
+	var darkMap = L.tileLayer(mapBoxtileLayerUrl, 	// Query darkMap Layer from API
 		{ 
 		attribution: mapBoxAttribution,
 		maxZoom: 6,
@@ -138,7 +139,7 @@ function createMap(earthquakes) {
 		accessToken: API_KEY
 		});
 	
-	var lightMap = L.tileLayer(tileLayerUrl, 	// Query darkMap Layer from API
+	var lightMap = L.tileLayer(mapBoxtileLayerUrl, 	// Query darkMap Layer from API
 	 	{ 
 	 	attribution: mapBoxAttribution,
 		 maxZoom: 6,
@@ -146,19 +147,32 @@ function createMap(earthquakes) {
 	 	id: "mapbox.light", 
 	 	noWrap: noWrap, 
 	 	accessToken: API_KEY
-	 	});
+		 });
+	//var wikiMap = L.tileLayer(wikiTileUrl, 	// Query darkMap Layer from API
+	//	{ 
+		//attribution: mapBoxAttribution,
+	//	maxZoom: 6,
+	//	minZoom: 2,
+		//id: "mapbox.light", 
+		//noWrap: noWrap, 
+		//accessToken: API_KEY
+	//	});
+	var tectLayer1 = L.tileLayer('https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json')	 
 
 
 	var baseMaps =					// Define a baseMaps object to hold our base layers (lightMap & darkMap)
 		{
 		"Satellite Map": satMap,
 		"Dark Map": darkMap,
-		"Light Map": lightMap
+		"Light Map": lightMap,
+	//	"Wiki Map": wikiMap
 		};
 
 	var overlayMaps = 				// Create overlay object to hold our overlay layer (layer above others)
 		{
-		Earthquakes: earthquakes
+		Earthquakes: earthquakes,
+		//Tectonincs: tectLayer1
+
 		};
 	
 	var myMap = L.map("map", 			// Initial Map to Load lightMap/earthquakes layers
