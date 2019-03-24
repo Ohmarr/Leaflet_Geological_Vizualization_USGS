@@ -29,10 +29,9 @@
 
 // Store our API endpoint inside queryUrl
 var queryUrl = 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2019-03-07%2000:00:00&endtime=2019-03-14%2023:59:59&minmagnitude=2.5&orderby=magnitude';
-var mapBoxAttribution = 'Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>';
+var mapBoxAttribution = 'Map data &copy; <a href=\"https://www.openlightMap.org/\">OpenlightMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>';
 var tileLayerUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
 var earthQuakeData
-
 
 /** Omar Notes:
  * 
@@ -58,7 +57,7 @@ var earthQuakeData
 
 
 
-var geoData, magnitude, coordinates, long, lat, heatData, radius
+var geoData, magnitude, coordinates, long, lat, heatData, colors
 var radius = []
 // Perform a GET request to the query URL
 d3.json(queryUrl, data => 
@@ -69,88 +68,92 @@ d3.json(queryUrl, data =>
 	coordinates = geoData.map(geoData=>geoData.geometry.coordinates)
 	long = coordinates.map(coordinates=>coordinates[0])
 	lat = coordinates.map(coordinates=>coordinates[1])
-	
-	
-	heatData= long.map((data, index)=>[data, lat[index]])
-	//heatData= heatData.map((data, index)=>[data, magnitude[index]])
-	});
-	
-	
-	  // Once we get a response, send the data.features object to the createFeatures function
-//let magnitude3 = geoData.map(geoData=>{return geoData.properties.mag});
+	colors = magnitude.map(circleColor)
 
-
+	
+	}); // Once we get a response, send the data.features object to the createFeatures function
+function circleColor(magnitude){
+	return	magnitude > 6 ? 'rgb(255, 0, 0)' :
+		magnitude > 5 ? '#FF4500' :
+		magnitude > 4 ? 'orange' :
+		magnitude > 3 ? '#FFDAB9' :
+		'yellow';}
+function circleOpacity(magnitude){
+	return	magnitude > 6 ? 0.6 :
+		magnitude > 5 ? 0.5 :
+		magnitude > 4 ? 0.4 :
+		magnitude > 3 ? 0.3 :
+		0.2;}
+		
 
 function createFeatures(earthquakeData) {
-	//let magnitude2 = earthQuakeData.map((earthQuakeData)=>[{magnitude:earthQuakeData.properties.mag}])
 	var geojsonMarkerOptions	
 	function onEachFeature(feature, layer) { 	// Give each feature a popup describing the place and time of the earthquake
 		layer.bindPopup(`<h3> ${feature.properties.place} </h3>
 				<hr>
-				<p> ${new Date(feature.properties.time)}\n Magnitude: ${feature.properties.mag}</p>
+				<p> ${new Date(feature.properties.time)}<br> Magnitude: ${feature.properties.mag}</p>
 				`);
-						}
-//		arr.forEach((num, index) => {return arr[index] = num*2;});
-	//radius = Math.exp(feature.properties.mag/1.01-0.13)/10
-	
-	
-		// 	radius: function(){if (magnitude[index]>=3){return 25}
-		// else {return 25}} 
-			//radius.forEach((num,index) => {return radius[index]= magnitude[index]})
-	
+		//magnitude=feature.properties.mag;		
+		// var latlng = L.latLng(lat, long);
+		// L.circle((latlng), {
+		// 	fillOpacity: .5,
+		// 	radius: 20
+		// })
+	}
+	// geoData[0].properties.mag
 
-
-
-	//	radius: 8//magnitude//feature.properties.mag
-		//radius: 25//magnitude//(Math.exp(magnitude/1.01-0.13)*1000)
-		//radius: earthQuakeData.features[i].properties.mag, 
-		//radius: earthQuakeData.forEach(element=>{earthQuakeData.features[element].properties.mag})
-		//d="M320,701a10,10 0 1,0 <radius>,0 a10,10 0 1,0 -20,0 "
-	//             }
-
-	
 	var earthquakes = L.geoJSON(earthquakeData, {   // Create a GeoJSON layer containing the features array on the earthquakeData object
 		onEachFeature: onEachFeature,           // Run the onEachFeature function once for each piece of data in the array
-		pointToLayer: (feature, earthQuakeData)=> L.circleMarker(earthQuakeData, {radius: Math.random()*20})
-	});
+		pointToLayer: (feature, earthQuakeData) => 
+			L.circleMarker(earthQuakeData, {
+				radius: (feature.properties.mag**2), 
+				fillColor: circleColor(feature.properties.mag), 
+				color: circleColor(feature.properties.mag), 
+				fillOpacity: circleOpacity(feature.properties.mag), 
+				weight: 1 
+			})})
+	//console.log(earthQuakeData.properties.mag);
 	createMap(earthquakes);// Sending our earthquakes layer to the createMap function
 }
 
 function createMap(earthquakes) {
-	var noWrap = true;
-	var satelliteMap = L.tileLayer(tileLayerUrl, 	// Query satellite layer from API
+	var noWrap = false;
+	var satMap = L.tileLayer(tileLayerUrl, 	// Query satellite layer from API
 		{ 
 		attribution: mapBoxAttribution,
-		maxZoom: 18,
+		maxZoom: 6,
+		minZoom: 2,
 		id: "mapbox.satellite", 
 		noWrap: noWrap,
 		accessToken: API_KEY
 		});
 
-	var darkmap = L.tileLayer(tileLayerUrl, 	// Query DarkMap Layer from API
+	var darkMap = L.tileLayer(tileLayerUrl, 	// Query darkMap Layer from API
 		{ 
 		attribution: mapBoxAttribution,
-		maxZoom: 18,
+		maxZoom: 6,
+		minZoom: 2,
 		id: "mapbox.dark", 
 		noWrap: noWrap,
 		accessToken: API_KEY
 		});
 	
-	// var streetMap = L.tileLayer(tileLayerUrl, 	// Query DarkMap Layer from API
-	// 	{ 
-	// 	attribution: mapBoxAttribution,
-	// 	maxZoom: 18,
-	// 	id: "mapbox.street", 
-	// 	noWrap: noWrap, 
-	// 	accessToken: API_KEY
-	// 	});
+	var lightMap = L.tileLayer(tileLayerUrl, 	// Query darkMap Layer from API
+	 	{ 
+	 	attribution: mapBoxAttribution,
+		 maxZoom: 6,
+		 minZoom: 2,
+	 	id: "mapbox.light", 
+	 	noWrap: noWrap, 
+	 	accessToken: API_KEY
+	 	});
 
 
-	var baseMaps =					// Define a baseMaps object to hold our base layers (streetmap & darkmap)
+	var baseMaps =					// Define a baseMaps object to hold our base layers (lightMap & darkMap)
 		{
-		"Satellite Map": satelliteMap,
-		"Dark Map": darkmap
-		// 'street Map': streetMap
+		"Satellite Map": satMap,
+		"Dark Map": darkMap,
+		"Light Map": lightMap
 		};
 
 	var overlayMaps = 				// Create overlay object to hold our overlay layer (layer above others)
@@ -158,11 +161,13 @@ function createMap(earthquakes) {
 		Earthquakes: earthquakes
 		};
 	
-	var myMap = L.map("map", 			// Initial Map to Load streetmap/earthquakes layers
+	var myMap = L.map("map", 			// Initial Map to Load lightMap/earthquakes layers
 		{
 		center: [41.5, 0], // center of world
 		zoom: 2.15,        // good zoom to see everything; 
-		layers: [satelliteMap, earthquakes]
+		maxZoom: 6,
+		minZoom: 2,
+		layers: [satMap, earthquakes]
 		});
 
 	L.control.layers(baseMaps, overlayMaps, 	// Create a layer control baseMaps+overLayMaps
