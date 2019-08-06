@@ -1,4 +1,4 @@
-# Visualizing Earthquakes w/ Leaflet
+<h1 align='center'> Visualizing Earthquakes w/ Leaflet</h1>
 
 ![App](static/screenshot.png)
 
@@ -14,4 +14,4 @@ The United States Geological Survery (USGS) maintains datasets for many geologic
  - A pop-up will appear when a marker is clicked,
  - A legend is included, as well as layer controls for various viewing options.  
 
-## Step 3 - TO DO - Add [tectonic plates](https://github.com/fraxen/tectonicplates) to the visualization.  
+### Step 3 - TO DO - Add [tectonic plates](https://github.com/fraxen/tectonicplates) to the visualization.  
