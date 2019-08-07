@@ -1,5 +1,7 @@
 <h1 align='center'> Visualizing Earthquakes w/ Leaflet</h1>
 
+Visit live app: https://global-earthquakes.herokuapp.com/index.html
+
 ![App](static/images/screenshot.png)
 
 The United States Geological Survery (USGS) maintains datasets for many geological events, including earthquakes from around the globe, and provides these to the public as a service.  Earthquake data will be used to create a geographic visualization around the globe.   
@@ -14,4 +16,6 @@ The United States Geological Survery (USGS) maintains datasets for many geologic
  - A pop-up will appear when a marker is clicked,
  - A legend is included, as well as layer controls for various viewing options.  
 
-### Step 3 - TO DO - Add [tectonic plates](https://github.com/fraxen/tectonicplates) to the visualization.  
+### Step 3 - Add Tectonic Plates to Visualization
+ - A geoJSON dataset of [tectonic plates](https://github.com/fraxen/tectonicplates) is available on github,
+ - A new layer was created and added to the visualization.  
