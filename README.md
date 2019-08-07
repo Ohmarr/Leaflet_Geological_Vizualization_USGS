@@ -1,6 +1,6 @@
 <h1 align='center'> Visualizing Earthquakes w/ Leaflet</h1>
 
-![App](static/screenshot.png)
+![App](static/images/screenshot.png)
 
 The United States Geological Survery (USGS) maintains datasets for many geological events, including earthquakes from around the globe, and provides these to the public as a service.  Earthquake data will be used to create a geographic visualization around the globe.   
 
