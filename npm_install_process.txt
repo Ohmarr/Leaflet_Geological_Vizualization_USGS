@@ -1,0 +1,37 @@
+NODE PACKAGE MANAGER PROCESS
+* ––––––––––––––––––––––––– * - MACHINE PREP - * ––––––––––––––––––––––––– *
+1) Install 'node.js' on computer; includes npm
+2) Verify Installation:
+	OSX: terminal; WINDOWS ONLY: Install 'git bash'
+		$ git --version
+		$ node -v
+		$ npm -v
+3) Install Gulp (Globally): 
+	$ npm install gulp -g  OR $ npm install -g gulp
+* ––––––––––––––––––––––––– * - PROJECT PREP - * ––––––––––––––––––––––––– *
+1) `cd` into local repository (should be cloned & set up for git)
+2) Initialize & Create ‘package.json’ -> file containing metadata needed for Gulp:
+	$ npm init
+3) Install gulp for project (add dependency to 'package.json' file): 
+	$ npm install gulp --save-dev
+4) Create 'gulpfile.js'
+	$ touch gulpfile.js
+	‘use strict’;
+	const gulp = require(‘gulp’);
+5) Install Project Dependencies/Plugins & Add to gulpfile 
+	$ npm install gulp-sass --save-dev;
+	gulpfile:	const sass = require(‘gulp-sass’);  #add to gulpfile.js;
+	$ npm install gulp-uglify --save-dev;
+	$ npm install browswer-sync --save-dev;
+	$ npm install gulp-clean-css --save-dev; 
+	$ npm install --save-dev del
+	$ npm install --save-dev gulp-header
+	$ npm install --save-dev merge-stream
+	$ npm install --save-dev gulp-plumber
+	$ npm install --save-dev gulp-rename
+	$ npm install --save-dev gulp-autoprefixer
+	$ npm install --save-dev gulp-postcss
+	$ npm install --save-dev cssnano
+	$ npm install --save-dev webpack
+	$ npm install --save-dev webpack-stream
+	$ npm install --save-dev gulp-eslint

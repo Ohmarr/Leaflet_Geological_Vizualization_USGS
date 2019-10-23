@@ -1,0 +1,54 @@
+{
+  "name": "leaflet_geological_vizualization_usgs",
+  "version": "1.0.0",
+  "description": "A Simple Application to Visualize Earthquakes",
+  "main": "index.js",
+  "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1",
+	"watch": "gulp watch --mode=development",
+	"build": "gulp build --mode=production"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "package",
+    "manager",
+    "leaflet",
+    "javascript",
+    "js",
+    "html",
+    "css",
+    "php",
+    "gulp"
+  ],
+  "author": "Omar Abusheikh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS/issues"
+  },
+  "homepage": "https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-header": "^2.0.9",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "merge-stream": "^2.0.0",
+    "webpack": "^4.41.2",
+    "webpack-stream": "^5.2.1"
+  },
+  "dependencies": {
+    "del": "^5.1.0"
+  }
+}
