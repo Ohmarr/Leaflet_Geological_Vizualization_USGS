@@ -1,0 +1,161 @@
+// VARIABLES
+
+// Override Bootstrap font variables
+$font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+	"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
+$headings-font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+	"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
+$headings-font-weight: 700 !default;
+
+// Set custom colors
+$dark-grey: #273b50 !default;
+$UT-orange: #bf5700;
+$UT-dk-blue: #333f48;
+$Sam-Parker-Grey: #333333;
+$Omar-Drk-Red: #6d0707;
+
+// Override Bootstrap primary and secondary colors
+$primary: white !default;
+$secondary: black !default;
+$tertiary: $Omar-Drk-Red;
+$quaternary: #333333;
+$quinary: #009900;
+
+//  quinary, senary, septenary, octonary, nonary, and denary
+
+// FONT SIZE;
+// 	0 - 0
+// 	1 - .25rem (4px if font-size is 16px)
+// 	2 - .5rem (8px if font-size is 16px)
+// 	3 - 1rem (16px if font-size is 16px)
+// 	4 - 1.5rem (24px if font-size is 16px)
+// 	5 - 3rem (48px if font-size is 16px)
+
+/* set map, body, and html to 100% of the screen size */
+body,
+html {
+	height: 100%;
+	
+}
+
+//large screens (default)
+#omar-nav {
+	display: flex;
+	flex-direction: row;
+	background-color: $secondary;
+	padding: 1% 0 1% 0;
+	font-family: $headings-font-family;
+	font-weight: $headings-font-weight;
+	.navbar {
+		background-color: $tertiary;
+		text-transform: uppercase;
+	}
+
+	.navbar-brand {
+		color: $primary;
+		// font-size: 1.0rem;
+		// width: 150px;
+		// text-align: end;
+		padding: 0 0 0 75%;
+		&:hover {
+			color: darken($primary, 20%);
+		}
+	}
+	.navbar-logo {
+		width: 150px;
+		height: auto;
+		color: $primary;
+		// &:hover {
+		// 	width: 175px;
+		// 	height: auto;
+		// }
+	}
+}
+
+#info-header {
+	h1 {
+		text-align: center;
+		color: $tertiary;
+	}
+	h3 {
+		text-align: center;
+	}
+}
+
+#map {
+	height: 100%;
+	margin: 0 5% 0 5%;
+}
+
+#footer {
+	display: flex;
+	flex-basis: auto;
+	padding: 0 0 1% 0;
+	background-color: $secondary;
+	color: $primary;
+	place-content: center;
+	text-align: center;
+	div {
+		padding: 1.0rem 0.0rem 1.0rem 0.0rem;
+	}
+	h4 {
+		text-transform: uppercase;
+		padding: 3% 0 3% 0;
+	}
+
+	.copyright {
+		background-color: $secondary;
+		color: $tertiary;
+		padding: 1% 0 1% 0;
+		text-align: center;
+		place-content: center;
+	}
+
+	#copyright-text {
+		color: $tertiary;
+		font-size: 1.25rem;
+		font-weight: 300;
+	}
+}
+
+//changes when viewed on small screens
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	#omar-nav {
+		transition: padding-top 0.3s, padding-bottom 0.3s;
+		.navbar {
+			background-color: $tertiary;
+			text-transform: uppercase;
+		}
+		.navbar-brand {
+			font-size: 1.0rem;
+			transition: font-size 0.3s;
+		}
+		.navbar-logo {
+			width: 100px;
+			height: auto;
+		}
+		.navbar-nav {
+			margin: 0 0 0 0;
+			li.nav-item {
+				a.nav-link {
+					// padding: 0 0 0 0;
+					// margin: 0 0 0 0;
+					// color: $primary;
+					// background: $secondary;
+					font-size: 1.0rem;
+					text-align: center;
+					// background: lighten($secondary, 30%);
+				}
+			}
+		}
+	}
+	.navbar-toggler {
+		font-size: 1.0rem;
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 768px) {
+	.hide-when-small {
+		display: none;
+	}
+}

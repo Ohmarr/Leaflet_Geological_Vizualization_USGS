@@ -1,3 +1,5 @@
+const API_KEY = 'pk.eyJ1Ijoib2htYXJyIiwiYSI6ImNqc3JwNGsycDA4ZW00M28xNXp6dTJxeGEifQ.AyDBifqvXtzRSXV1PwRioA' //mapbox API Key
+
 // Store our API endpoint inside queryUrl
 var queryUrl = 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2019-07-29%2000:00:00&endtime=2019-08-05%2023:59:59&minmagnitude=2.5&orderby=magnitude';
 var mapBoxAttribution = 'Map data &copy; <a href=\"https://www.openlightMap.org/\">OpenlightMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>';

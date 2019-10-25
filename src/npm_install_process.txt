@@ -35,3 +35,14 @@ NODE PACKAGE MANAGER PROCESS
 	$ npm install --save-dev webpack
 	$ npm install --save-dev webpack-stream
 	$ npm install --save-dev gulp-eslint
+	$ npm install --save-dev @fortawesome/fontawesome-free
+	$ npm install --save-dev leaflet
+	$ npm install bootstrap jquery popper --save-dev
+
+	$ npm install --save-dev d3
+
+* ––––––––––––––––––––––––– * - ADD TASKS TO GULPFILE - * ––––––––––––––––––––––––– *
+	gulp.task: DEFINES TASKS,
+	gulp.src: SOURCE FILES,
+	gulp.dest: DESTINATION DIRECTORY,
+	gulp.watch: MONITOR FOR CHANGES;
