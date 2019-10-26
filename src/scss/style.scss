@@ -1,79 +1,79 @@
-// VARIABLES
-
-// Override Bootstrap font variables
-$font-family-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-	"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
-$headings-font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-	"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
-$headings-font-weight: 700 !default;
-
-// Set custom colors
-$dark-grey: #273b50 !default;
-$UT-orange: #bf5700;
-$UT-dk-blue: #333f48;
+// FONTS & COLORS
+$font-1: 'Montserrat', sans-serif;
+$font-2: 'Lato', sans-serif;
+$font-3: 'Comfortaa', cursive;
 $Sam-Parker-Grey: #333333;
 $Omar-Drk-Red: #6d0707;
-
-// Override Bootstrap primary and secondary colors
-$primary: white !default;
-$secondary: black !default;
+$primary: white;
+$secondary: black;
 $tertiary: $Omar-Drk-Red;
 $quaternary: #333333;
 $quinary: #009900;
+$senary: $Sam-Parker-Grey;
+$septenary: $primary;
+$octonary: $primary;
+$nonary: $primary;
+$denary: #ffffff;
 
-//  quinary, senary, septenary, octonary, nonary, and denary
+// BOOTSTRAP FONTS / SIZES:
+// let 1.0rem = 16px, then
+// 0=0, 1=0.25rem, 2=0.5rem, 3=1.0rem(unit), 4=1.5rem, 5=3.0rem
 
-// FONT SIZE;
-// 	0 - 0
-// 	1 - .25rem (4px if font-size is 16px)
-// 	2 - .5rem (8px if font-size is 16px)
-// 	3 - 1rem (16px if font-size is 16px)
-// 	4 - 1.5rem (24px if font-size is 16px)
-// 	5 - 3rem (48px if font-size is 16px)
-
-/* set map, body, and html to 100% of the screen size */
 body,
 html {
 	height: 100%;
-	
+	font-family: $font-1;
+	background-color: darken($primary, 10%);
+	a {
+		color: $primary;
+	}
+	a:hover {
+		color: $tertiary;
+	}
 }
 
-//large screens (default)
 #omar-nav {
+	background-color: $secondary;
+	color: $secondary;
 	display: flex;
 	flex-direction: row;
-	background-color: $secondary;
-	padding: 1% 0 1% 0;
-	font-family: $headings-font-family;
-	font-weight: $headings-font-weight;
-	.navbar {
-		background-color: $tertiary;
-		text-transform: uppercase;
-	}
-
-	.navbar-brand {
-		color: $primary;
-		// font-size: 1.0rem;
-		// width: 150px;
-		// text-align: end;
-		padding: 0 0 0 75%;
-		&:hover {
-			color: darken($primary, 20%);
-		}
-	}
-	.navbar-logo {
+	font-family: $font-1;
+	padding: 1% 3% 1% 3%;
+	text-transform: uppercase;
+	#navbar-logo {
 		width: 150px;
 		height: auto;
 		color: $primary;
-		// &:hover {
-		// 	width: 175px;
-		// 	height: auto;
-		// }
+		&.grow {
+			transition: all .2s ease-in-out;
+		}
+		&.grow:hover {
+			// font-weight: bold;
+			transform: scale(1.33);
+			filter: invert(87%) sepia(53%) saturate(4264%) hue-rotate(348deg) brightness(85%) contrast(107%);
+		}
+	}
+	#navbar-brand {
+		a {
+			text-transform: uppercase;
+			// color: $primary;
+			font-size: 1.75rem;
+			font-weight: 700;
+		}
+	}
+	#navbar-brand.grow {
+		transition: all .2s ease-in-out;
+	}
+	#navbar-brand.grow:hover {
+		transform: scale(1.15);
 	}
 }
 
 #info-header {
+	margin: 0;
+	padding: 1% 0 1% 0;
 	h1 {
+		font-family: $font-1;
 		text-align: center;
 		color: $tertiary;
 	}
@@ -84,77 +84,138 @@ html {
 
 #map {
 	height: 100%;
-	margin: 0 5% 0 5%;
+	margin: 0 15% 5% 15%;
 }
 
-#footer {
+footer {
 	display: flex;
 	flex-basis: auto;
-	padding: 0 0 1% 0;
+	padding: 0 0 0 0;
 	background-color: $secondary;
 	color: $primary;
 	place-content: center;
+	align-content: center;
+	justify-content: center;
 	text-align: center;
 	div {
-		padding: 1.0rem 0.0rem 1.0rem 0.0rem;
-	}
-	h4 {
-		text-transform: uppercase;
-		padding: 3% 0 3% 0;
-	}
+		div {
+			padding: 1.0rem 0.0rem 1.0rem 0.0rem;
+		}
+		h4 {
+			text-transform: uppercase;
+			// text-align: center;
+			padding: 3% 0 3% 0;
+			font-weight: 700;
+		}
+		a {
+			color: $primary;
+		}
+		ul {
+			padding: 0 0 0 0;
 
-	.copyright {
-		background-color: $secondary;
-		color: $tertiary;
-		padding: 1% 0 1% 0;
-		text-align: center;
-		place-content: center;
-	}
+			li {
+				display: inline-block;
 
-	#copyright-text {
-		color: $tertiary;
-		font-size: 1.25rem;
-		font-weight: 300;
+				.link-icon {
+					align-items: center;
+					background-color: darken($primary, 10%);
+					border-radius: 50%;
+					border: 0.20rem solid $tertiary;
+					color: $tertiary;
+					display: inline-flex;
+					font-size: 1.5rem;
+					height: 50px;
+					justify-content: center;
+					width: 50px;
+					&.grow {
+						transition: all .2s ease-in-out;
+						&:hover {
+							background-color: darken($primary, 20%);
+							border-color: darken($tertiary, 5%);
+							color: darken($tertiary, 5%);
+							font-weight: bold;
+							transform: scale(1.25);
+						}
+					}
+					&:active,
+					&:focus {
+						background-color: darken($primary, 25%);
+						border-color: darken($tertiary, 10%);
+						color: darken($tertiary, 10%);
+					}
+					&.active {
+						background-color: darken($primary, 30%);
+						border-color: darken($tertiary, 15%);
+						color: darken($tertiary, 15%);
+					}
+				}
+			}
+		}
+		a.copyright {
+			text-decoration: none;
+			color: $tertiary;
+			font-size: 1.0rem;
+			position: relative;
+			&:hover {
+				font-weight: bold;
+			}
+		}
 	}
 }
 
 //changes when viewed on small screens
 @media screen and (min-width: 0px) and (max-width: 768px) {
+	body,
+	html {
+		margin: 0;
+	}
 	#omar-nav {
 		transition: padding-top 0.3s, padding-bottom 0.3s;
-		.navbar {
-			background-color: $tertiary;
-			text-transform: uppercase;
-		}
-		.navbar-brand {
-			font-size: 1.0rem;
-			transition: font-size 0.3s;
-		}
-		.navbar-logo {
+		#navbar-logo {
 			width: 100px;
 			height: auto;
 		}
-		.navbar-nav {
-			margin: 0 0 0 0;
-			li.nav-item {
-				a.nav-link {
-					// padding: 0 0 0 0;
-					// margin: 0 0 0 0;
-					// color: $primary;
-					// background: $secondary;
-					font-size: 1.0rem;
-					text-align: center;
-					// background: lighten($secondary, 30%);
+		#navbar-brand {
+			a {
+				font-size: 0.75rem;
+				transition: font-size 0.3s;
+			}
+		}
+	}
+	#info-header {
+		h1 {
+			font-size: 1.25rem;
+		}
+		h3 {
+			font-size: 0.85rem;
+		}
+	}
+	#map {
+		margin: 0 5% 5% 5%;
+	}
+	footer {
+		div {
+			div {
+				padding: 1% 0 0 0;
+				h4 {
+					padding: 1% 0 1% 0;
+					font-weight: 500;
+					font-size: 1.5rem;
+				}
+				li {
+					display: inline-block;
+					.link-icon {
+						height: 50px;
+						width: 50px;
+					}
+				}
+				.copyright {
+					font-size: 1.25rem;
+					font-weight: 300;
 				}
 			}
 		}
 	}
-	.navbar-toggler {
-		font-size: 1.0rem;
-	}
-}
-
-@media screen and (min-width: 0px) and (max-width: 768px) {
 	.hide-when-small {
 		display: none;
 	}

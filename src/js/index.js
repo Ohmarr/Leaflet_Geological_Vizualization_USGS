@@ -143,9 +143,7 @@ function createMap(earthquakes) {
 	
 	var myMap = L.map("map", 			// Initial Map to Load lightMap/earthquakes layers
 		{
-		//center: [41.5, 0], 		// center of world
-		center: [30.267, -97.743],	// Texas
-		//zoom: 2.15,        		// good zoom to see everything; 
+		center: [30.267, -97.743],	// Texas // 2.15=everything; center_of_world: [41.5, 0]
 		zoom: 3,			// Catering to Americans mostly
 		maxZoom: 6,
 		minZoom: 2,
@@ -160,7 +158,7 @@ function createMap(earthquakes) {
 
 
 
-	/** Omar Notes:
+	/** Notes:
  * 
  *  Javascript Methods
  *  .forEach() ⟶ executes mutation of each array element in place,
