@@ -167,25 +167,3 @@ function createMap(earthquakes) {
 		)
 		.addTo(myMap);
 }
-
-/** Notes:
- * 
- *  Javascript Methods
- *  .forEach() ⟶ executes mutation of each array element in place,
- * 	arr.forEach((num, index) => {return arr[index] = num*2;});
- *  .map() ⟶ executes function on each item & returns an array of new elements,
- *  	let doubled = arr.map(num => {return num * 2;});
- * 	let newArr = arr.map((datum, index, array) => [{index:index, datum:datum}]);
- * .filter() ⟶ will .map() on features which pass logic test & returns an array of new elements; 
- * 	let cities = data.filter(val => val.population > 500000000); // cities is new array
- * .reduce() ⟶ performs an operation on a value in each element of the array & returns a single value; i.e. accumulates the sum; 
- * 	let sum = arr.reduce((accumulator, value) => {return accumulator + value;});
- * 
- * 
- *   	if (v % 2 === 0){return v*2;}
- * 		else {return v;}
- * 	// SAME ↕︎
- * 	v%2===0?v*2 : v;
- * 
- * 
- */
