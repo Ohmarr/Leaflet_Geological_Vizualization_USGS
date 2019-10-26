@@ -55,6 +55,8 @@ html a:hover {
 }
 
 #info-header {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 1% 0 1% 0;
 }
@@ -67,6 +69,16 @@ html a:hover {
 
 #info-header h3 {
   text-align: center;
+}
+
+#info-header #queryButton {
+  margin: 0 40% 0 40%;
+}
+
+#info-header #dateRange {
+  text-align: center;
+  background-color: #e6e6e6;
+  margin: 0 40% 0 40%;
 }
 
 #map {

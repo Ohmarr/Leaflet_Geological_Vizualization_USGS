@@ -24,6 +24,12 @@
 	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'></script>
 	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'>
 
+
+	<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 	<script src='https://kit.fontawesome.com/fe356f15b0.js' crossorigin='anonymous'></script>
 	<link href='https://fonts.googleapis.com/css?family=Comfortaa|Lato|Montserrat:300,400,500,700&display=swap' rel='stylesheet'>
 
@@ -40,8 +46,10 @@
 	</nav>
 	<!-- ******* INFO SECTION ********** ––––––––––––––––––– -->
 	<div id='info-header' class='conatiner-fluid'>
-		<h1>Earthquakes around the globe</h1>
-		<h3>Data Collected From the US Geological Survey</h3>
+		<h1>Global Earthquakes</h1>
+		<h3 id='duration'><!--JS INJECTION--></h3>
+		<!-- <input id='dateRange' type="text" name="daterange" value="10/01/2019 - 10/31/2019" /> -->
+		<!-- <button id="queryButton">Refresh Map</button> -->
 	</div>
 	<!-- ******* MAP SECTION ********** –––––––––––––––––––– -->
 	<div id='map' class='conatiner-fluid'>

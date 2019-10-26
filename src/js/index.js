@@ -1,22 +1,93 @@
-// Store our API endpoint inside queryUrl
-var queryUrl = 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2019-07-29%2000:00:00&endtime=2019-08-05%2023:59:59&minmagnitude=2.5&orderby=magnitude';
-var mapBoxAttribution = "Map data &copy; <a href='https://www.openlightMap.org/'>OpenlightMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>";
+// var finishDate = new Date();
+var finishDate = new Date();
+var startDate = new Date();
+var duration = 14;
+console.log(duration);
+startDate.setDate(finishDate.getDate() - duration);
+
+var day_finishDate = String(finishDate.getDate()).padStart(2, '0');
+var month_finishDate = String(finishDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+var year_finishDate = finishDate.getFullYear();
+var day_startDate = String(startDate.getDate()).padStart(2, '0');
+var month_startDate = String(startDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+var year_startDate = startDate.getFullYear();
+startDate = year_startDate + '-' + month_startDate + '-' + day_startDate;
+finishDate = year_finishDate + '-' + month_finishDate + '-' + day_finishDate;
+
+var queryUrl = `https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=${startDate}%2000:00:00&endtime=${finishDate}%2023:59:59&minmagnitude=2.5&orderby=magnitude`;
+var mapBoxAttribution =
+	"Map data &copy; <a href='https://www.openlightMap.org/'>OpenlightMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>";
 var mapBoxtileLayerUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
 var wikiTileUrl = 'https://maps.wikimedia.org/osm-intl/${z}/${x}/${y}.png';
 var tectonicPlatesUrl = 'https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json';
 var earthQuakeData;
 var geoData, magnitude, coordinates, long, lat, heatData, colors;
 var radius = [];
+
+queryData();
+
+
+
+
+
+
+
+
+
+
+$(function() {
+	$('input[name="daterange"]').daterangepicker(
+		{
+			opens: 'left'
+		},
+		function(start, end, label) {
+			startDate = start.format('YYYY-MM-DD');
+			finishDate = end.format('YYYY-MM-DD');
+			console.log(
+				'A new date selection was made: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD')
+			);
+			console.log(startDate, finishDate);
+		}
+	);
+});
+document.getElementById('queryButton').addEventListener('click', myFunction);
+
+function myFunction() {
+	clearMap();
+	queryData();
+}
+
+// $('input[name="daterange"]').on('apply.daterangepicker', function() {
+// 	console.log('working');
+// 	queryData();
+// });
+
 // Perform a GET request to the query URL
-d3.json(queryUrl, (data) => {
-	createFeatures(data.features);
-	geoData = data.features;
-	magnitude = geoData.map((geoData) => geoData.properties.mag);
-	coordinates = geoData.map((geoData) => geoData.geometry.coordinates);
-	long = coordinates.map((coordinates) => coordinates[0]);
-	lat = coordinates.map((coordinates) => coordinates[1]);
-	colors = magnitude.map(circleColor);
-}); // Once we get a response, send the data.features object to the createFeatures function
+function clearMap()
+{
+	L.map('map').clearLayers();
+}
+
+
+
+
+
+
+
+
+function queryData() {
+	document.getElementById("duration").innerHTML = `Duration: ${startDate} through ${finishDate}`;
+	d3.json(queryUrl, (data) => {
+		createFeatures(data.features);
+		geoData = data.features;
+		magnitude = geoData.map((geoData) => geoData.properties.mag);
+		coordinates = geoData.map((geoData) => geoData.geometry.coordinates);
+		long = coordinates.map((coordinates) => coordinates[0]);
+		lat = coordinates.map((coordinates) => coordinates[1]);
+		colors = magnitude.map(circleColor);
+	}); // Once we get a response, send the data.features object to the createFeatures function
+}
+
 function circleColor(magnitude) {
 	// returns color - Higher Magnitude = More Red ; Less Magnitude = Yellow
 	return magnitude > 6
