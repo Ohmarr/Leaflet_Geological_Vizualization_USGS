@@ -19,8 +19,6 @@ $denary: #ffffff;
 // let 1.0rem = 16px, then
 // 0=0, 1=0.25rem, 2=0.5rem, 3=1.0rem(unit), 4=1.5rem, 5=3.0rem
 
-
-
 body,
 html {
 	height: 100%;
@@ -72,8 +70,8 @@ html {
 }
 
 #info-header {
-	display: flex; 
-	flex-direction: column; 
+	display: flex;
+	flex-direction: column;
 	margin: 0;
 	padding: 1% 0 1% 0;
 	h1 {
@@ -85,10 +83,10 @@ html {
 		text-align: center;
 	}
 	#queryButton {
-		margin: 0 40% 0 40%;	
+		margin: 0 40% 0 40%;
 	}
 	#dateRange {
-		text-align: center; 
+		text-align: center;
 		background-color: darken($primary, 10%);
 		margin: 0 40% 0 40%;
 	}
@@ -101,6 +99,20 @@ html {
 #map {
 	height: 100%;
 	margin: 0 15% 5% 15%;
+}
+
+.leaflet-popup-content {
+	.popup-location {
+		font-size: 1.5rem !important;
+	}
+	.popup-date {
+		font-size: 1.0rem;
+	}
+	.popup-magnitude {
+		font-size: 1.0rem;
+		color: $tertiary; 
+		text-align: center;
+	}
 }
 
 footer {
@@ -178,6 +190,8 @@ footer {
 		}
 	}
 }
+
+
 
 //changes when viewed on small screens
 @media screen and (min-width: 0px) and (max-width: 768px) {

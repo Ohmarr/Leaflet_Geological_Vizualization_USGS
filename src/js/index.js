@@ -26,15 +26,6 @@ var radius = [];
 
 queryData();
 
-
-
-
-
-
-
-
-
-
 $(function() {
 	$('input[name="daterange"]').daterangepicker(
 		{
@@ -63,20 +54,12 @@ function myFunction() {
 // });
 
 // Perform a GET request to the query URL
-function clearMap()
-{
+function clearMap() {
 	L.map('map').clearLayers();
 }
 
-
-
-
-
-
-
-
 function queryData() {
-	document.getElementById("duration").innerHTML = `Duration: ${startDate} through ${finishDate}`;
+	document.getElementById('duration').innerHTML = `Duration: ${startDate} through ${finishDate}`;
 	d3.json(queryUrl, (data) => {
 		createFeatures(data.features);
 		geoData = data.features;
@@ -103,9 +86,10 @@ function createFeatures(earthquakeData) {
 	var geojsonMarkerOptions;
 	function onEachFeature(feature, layer) {
 		// Give each feature a popup describing the place and time of the earthquake
-		layer.bindPopup(`<h3> ${feature.properties.place} </h3>
+		layer.bindPopup(`<h3 class="popup-location">Location: ${feature.properties.place}</h3>
 				<hr>
-				<p> ${new Date(feature.properties.time)}<br> Magnitude: ${feature.properties.mag}</p>
+				<p class="popup-date">Date:  ${new Date(feature.properties.time)}</p>
+				<p class="popup-magnitude">Magnitude:  ${feature.properties.mag}</p>
 				`);
 		//magnitude=feature.properties.mag;
 		// var latlng = L.latLng(lat, long);

@@ -86,6 +86,20 @@ html a:hover {
   margin: 0 15% 5% 15%;
 }
 
+.leaflet-popup-content .popup-location {
+  font-size: 1.5rem !important;
+}
+
+.leaflet-popup-content .popup-date {
+  font-size: 1.0rem;
+}
+
+.leaflet-popup-content .popup-magnitude {
+  font-size: 1.0rem;
+  color: #6d0707;
+  text-align: center;
+}
+
 footer {
   display: flex;
   flex-basis: auto;
