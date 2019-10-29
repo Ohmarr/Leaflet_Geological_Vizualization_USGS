@@ -133,16 +133,16 @@ footer {
 				display: inline-block;
 
 				.link-icon {
-					align-items: center;
-					background-color: darken($primary, 10%);
-					border-radius: 50%;
-					border: 0.20rem solid $tertiary;
-					color: $tertiary;
-					display: inline-flex;
-					font-size: 1.5rem;
-					height: 50px;
-					justify-content: center;
 					width: 50px;
+					justify-content: center;
+					height: 50px;
+					font-size: 1.5rem;
+					display: inline-flex;
+					color: $tertiary;
+					border: 0.20rem solid $tertiary;
+					border-radius: 50%;
+					background-color: darken($primary, 10%);
+					align-items: center;
 					&.grow {
 						transition: all .2s ease-in-out;
 						&:hover {

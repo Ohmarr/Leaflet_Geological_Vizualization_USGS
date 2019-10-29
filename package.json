@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"watch": "gulp watch --mode=development",
+		"start": "gulp watch --mode=development",
 		"build": "gulp build --mode=production"
 	},
 	"repository": {

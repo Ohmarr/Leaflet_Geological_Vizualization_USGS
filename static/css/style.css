@@ -121,16 +121,16 @@ footer div ul li {
 }
 
 footer div ul li .link-icon {
-  align-items: center;
-  background-color: #e6e6e6;
-  border-radius: 50%;
-  border: 0.2rem solid #6d0707;
-  color: #6d0707;
-  display: inline-flex;
-  font-size: 1.5rem;
-  height: 50px;
-  justify-content: center;
   width: 50px;
+  justify-content: center;
+  height: 50px;
+  font-size: 1.5rem;
+  display: inline-flex;
+  color: #6d0707;
+  border: 0.2rem solid #6d0707;
+  border-radius: 50%;
+  background-color: #e6e6e6;
+  align-items: center;
 }
 
 footer div ul li .link-icon.grow {
