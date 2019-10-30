@@ -1,6 +1,7 @@
 <!--⇧⌘V-To Preview-->
 <h1 align='center'> Visualizing Earthquakes</h1>
-<h3 align=center> Visit my [Online Portfolio](https://Ohmarr.github.io) </h3>
+
+Visit my [Online Portfolio](https://Ohmarr.github.io)
 
 <hr>
 
