@@ -109,7 +109,7 @@ html {
 	}
 	.popup-magnitude {
 		font-size: 1.0rem;
-		color: $tertiary; 
+		color: $tertiary;
 		text-align: center;
 	}
 }
@@ -151,29 +151,27 @@ footer {
 			width: 65px;
 			justify-content: center;
 			margin: 0.0rem 0.5rem 0.0rem 0.5rem;
-			padding: 0.5rem 0.5rem 0.5rem; 
+			padding: 0.5rem 0.5rem 0.5rem;
 			&.grow:hover {
 				background-color: darken($primary, 20%);
 				border-color: darken($tertiary, 5%);
 				color: darken($tertiary, 5%);
 				font-weight: bold;
-				}
 			}
-			&:active,
-			&:focus {
-				background-color: darken($primary, 25%);
-				border-color: darken($tertiary, 10%);
-				color: darken($tertiary, 10%);
-			}
-			&.active {
-				background-color: darken($primary, 30%);
-				border-color: darken($tertiary, 15%);
-				color: darken($tertiary, 15%);
-			}
+		}
+		&:active,
+		&:focus {
+			background-color: darken($primary, 25%);
+			border-color: darken($tertiary, 10%);
+			color: darken($tertiary, 10%);
+		}
+		&.active {
+			background-color: darken($primary, 30%);
+			border-color: darken($tertiary, 15%);
+			color: darken($tertiary, 15%);
+		}
+	}
 
-			}
-		
-	
 	#footer-copyright-section {
 		background-color: $secondary;
 		color: $tertiary;
@@ -187,9 +185,6 @@ footer {
 		}
 	}
 }
-
-
-
 
 //changes when viewed on small screens
 @media screen and (min-width: 0px) and (max-width: 768px) {
@@ -238,19 +233,20 @@ footer {
 				width: 50px;
 				font-size: 2.0rem;
 				margin: 0.0rem 0.5rem 0.0rem 0.5rem;
-				padding: 0.5rem 0.5rem 0.5rem; 
+				padding: 0.5rem 0.5rem 0.5rem;
+			}
+
+			#footer-copyright-section {
+				padding: 1% 0 1% 0;
+				#copyright-text {
+					color: $tertiary;
+					font-size: 1.25rem;
+					font-weight: 300;
 				}
-		
-		#footer-copyright-section {
-			padding: 1% 0 1% 0;
-			#copyright-text {
-				color: $tertiary;
-				font-size: 1.25rem;
-				font-weight: 300;
 			}
 		}
+		.hide-when-small {
+			display: none;
+		}
 	}
-	.hide-when-small {
-		display: none;
-	}
-}}
+}
