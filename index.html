@@ -42,7 +42,7 @@
 		<a href='https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS' target= '_blank'>
 			<img id='navbar-logo' class='grow' src='https://ohmarr.github.io/src/assets/oa-logo-reverse.png' alt='Omar Abusheikh Logo'>
 		</a>
-		<h2 id='navbar-brand' class='grow'><a href='https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS' target= '_blank'>built with leaflet.js & d3</a></h2>	
+		<h2 class='grow navbar-brand'><a href='https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS' target= '_blank'>built with leaflet.js & d3</a></h2>	
 	</nav>
 	<!-- ******* INFO SECTION ********** ––––––––––––––––––– -->
 	<div id='info-header' class='conatiner-fluid'>
@@ -55,32 +55,35 @@
 	<div id='map' class='conatiner-fluid'>
 		<!-- ******* leaflet injects map here -->
 	</div>
-	<!-- ******* FOOTER / COPYRIGHT SECTION *********** –––– -->
-	<footer class='footer'>
-			<div class='row'>
-				<div class='col-lg-4 col-12'>
-					<h4 >Direct Contact</h4>
-					<a href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
-					<a href='tel:+15129639461'>+1-512-963-9461</a>				
-				</div>
-				<div id='links-online' class='col-lg-4 col-12'>
-					<h4 >Online</h4>
-					<ul>
-						<li><a class='fab fa-fw fa-linkedin link-icon grow' href='https://www.linkedin.com/in/oabusheikh/' target= '_blank'></a></li>
-						<li><a class='fab fa-fw fa-github link-icon grow' href='https://github.com/Ohmarr' target= '_blank'></a></li>
-						<li><a class='far fa-grin-alt link-icon grow' href='https://Ohmarr.github.io' target= '_blank'></a></li>
-					</ul>
-				</div>
-				<div class='col-lg-4 col-12'>
-					<h4 >LOCATION</h4>
-					<p class='lead'>Austin, Texas 78741</p>
-				</div>
-				<div class='container col-12'>
-						<a class='copyright grow' href='http://Ohmarr.github.io' target= '_blank'>
-							Copyright &copy; Ohmarr.github.io 2019
-						</a>
-				</div>
-			</div>
+	<!-- ––––––––––––––––––––––––––––––––––––– * FOOTER / COPYRIGHT SECTION * ––––––––––––––––––––––––––––––––––––– -->
+	<footer class='row'>
+		<!-- Footer About Text -->
+		<div class='col-lg-4 col-12 container grow'>
+			<h4 >Direct Contact</h4>
+			<a class='grow' href = 'mailto: oabusheikh@gmail.com'>oabusheikh@gmail.com</a><br>
+			<a class='grow' href='tel:+15129639461'>+1-512-963-9461</a>				
+		</div>
+		<!-- Footer Social Icons -->
+		<div id="footer-links-section" class='col-lg-4 col-12 container grow'>
+			<h4 >Web</h4>
+			<a class='btn grow btn-social' href='https://www.linkedin.com/in/oabusheikh/' target= '_blank'><i class='grow fab fa-fw fa-linkedin'></i></a>
+			<a class='btn grow btn-social' href='https://github.com/Ohmarr' target= '_blank'><i class='grow fab fa-fw fa-github'></i></a>
+			<a class='btn grow btn-social' href='https://Ohmarr.github.io' target= '_blank'><i class='grow far fa-grin-alt'></i></a>
+		</div>
+		<!-- Footer Location -->
+		<div class='col-lg-4 col-12 hide-when-small'>
+			<h4 >LOCATION</h4>
+			<p class='lead'>Austin, Texas 78741</p>
+		</div>
+		<div id="footer-copyright-section" class='container grow'>
+		<!-- Footer Location -->
+			<a id='copyright-text' href = 'http://Ohmarr.github.io'>
+				<small>Copyright &copy; Ohmarr.github.io 2019</small>
+			</a>
+		</div>
+	</footer>	
+			
+<!-- ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	</footer>	
 	<!-- API key -->
 	<script type='text/javascript' src='src/js/config.js'></script>

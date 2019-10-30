@@ -18,6 +18,12 @@ $denary: #ffffff;
 // BOOTSTRAP FONTS / SIZES:
 // let 1.0rem = 16px, then
 // 0=0, 1=0.25rem, 2=0.5rem, 3=1.0rem(unit), 4=1.5rem, 5=3.0rem
+.grow {
+	transition: all .2s ease-in-out !important;
+	&:hover {
+		transform: scale(1.15);
+	}
+}
 
 body,
 html {
@@ -34,7 +40,6 @@ html {
 
 #omar-nav {
 	background-color: $secondary;
-	color: $secondary;
 	display: flex;
 	flex-direction: row;
 	font-family: $font-1;
@@ -44,28 +49,21 @@ html {
 		width: 150px;
 		height: auto;
 		color: $primary;
-		&.grow {
-			transition: all .2s ease-in-out;
-		}
 		&.grow:hover {
-			// font-weight: bold;
 			transform: scale(1.33);
 			filter: invert(87%) sepia(53%) saturate(4264%) hue-rotate(348deg) brightness(85%) contrast(107%);
 		}
 	}
-	#navbar-brand {
+	.navbar-brand {
 		a {
 			text-transform: uppercase;
 			// color: $primary;
 			font-size: 1.75rem;
 			font-weight: 700;
 		}
-	}
-	#navbar-brand.grow {
-		transition: all .2s ease-in-out;
-	}
-	#navbar-brand.grow:hover {
-		transform: scale(1.15);
+		&.grow:hover {
+			color: $tertiary;
+		}
 	}
 }
 
@@ -98,6 +96,7 @@ html {
 
 #map {
 	height: 100%;
+	// width: auto;
 	margin: 0 15% 5% 15%;
 }
 
@@ -116,80 +115,78 @@ html {
 }
 
 footer {
-	display: flex;
-	flex-basis: auto;
-	padding: 0 0 0 0;
+	flex-shrink: 0;
+	padding: 0 0 1% 0;
 	background-color: $secondary;
 	color: $primary;
 	place-content: center;
-	align-content: center;
-	justify-content: center;
 	text-align: center;
+	a {
+		color: $primary;
+		&:hover {
+			color: $tertiary;
+			font-weight: bolder;
+			text-decoration: none;
+		}
+	}
 	div {
-		div {
-			padding: 1.0rem 0.0rem 1.0rem 0.0rem;
-		}
-		h4 {
-			text-transform: uppercase;
-			// text-align: center;
-			padding: 3% 0 3% 0;
-			font-weight: 700;
-		}
-		a {
-			color: $primary;
-		}
-		ul {
-			padding: 0 0 0 0;
-
-			li {
-				display: inline-block;
-
-				.link-icon {
-					width: 50px;
-					justify-content: center;
-					height: 50px;
-					font-size: 1.5rem;
-					display: inline-flex;
-					color: $tertiary;
-					border: 0.20rem solid $tertiary;
-					border-radius: 50%;
-					background-color: darken($primary, 10%);
-					align-items: center;
-					&.grow {
-						transition: all .2s ease-in-out;
-						&:hover {
-							background-color: darken($primary, 20%);
-							border-color: darken($tertiary, 5%);
-							color: darken($tertiary, 5%);
-							font-weight: bold;
-							transform: scale(1.25);
-						}
-					}
-					&:active,
-					&:focus {
-						background-color: darken($primary, 25%);
-						border-color: darken($tertiary, 10%);
-						color: darken($tertiary, 10%);
-					}
-					&.active {
-						background-color: darken($primary, 30%);
-						border-color: darken($tertiary, 15%);
-						color: darken($tertiary, 15%);
-					}
+		padding: 1% 0.0rem 1% 0.0rem;
+	}
+	h4 {
+		text-transform: uppercase;
+		padding: 3% 0 3% 0;
+	}
+	#footer-links-section {
+		// Custom social buttons
+		.btn-social {
+			// display: block;
+			color: $tertiary;
+			align-items: center;
+			background-color: darken($primary, 10%);
+			border-radius: 50%;
+			border: 0.2rem solid $tertiary;
+			display: inline-flex;
+			font-size: 2.5rem; //4=1.5rem;
+			height: 65px; //5=3rem;
+			justify-content: center;
+			margin: 0.0rem 0.5rem 0.0rem 0.5rem;
+			padding: 0.5rem 0.5rem 0.5rem; 
+			&.grow:hover {
+				background-color: darken($primary, 20%);
+				border-color: darken($tertiary, 5%);
+				color: darken($tertiary, 5%);
+				font-weight: bold;
 				}
 			}
-		}
-		a.copyright {
-			text-decoration: none;
-			color: $tertiary;
-			font-size: 1.0rem;
-			position: relative;
-			&:hover {
-				font-weight: bold;
+			&:active,
+			&:focus {
+				background-color: darken($primary, 25%);
+				border-color: darken($tertiary, 10%);
+				color: darken($tertiary, 10%);
 			}
+			&.active {
+				background-color: darken($primary, 30%);
+				border-color: darken($tertiary, 15%);
+				color: darken($tertiary, 15%);
+			}
+
+			}
+		
+	
+	#footer-copyright-section {
+		background-color: $secondary;
+		color: $tertiary;
+		padding: 1% 0 1% 0;
+		text-align: center;
+		place-content: center;
+		#copyright-text {
+			color: $tertiary;
+			font-size: 1.25rem;
+			font-weight: 300;
 		}
 	}
 }
+
 
 
 
@@ -205,9 +202,9 @@ footer {
 			width: 100px;
 			height: auto;
 		}
-		#navbar-brand {
+		.navbar-brand {
 			a {
-				font-size: 0.75rem;
+				font-size: 0.75rem !important;
 				transition: font-size 0.3s;
 			}
 		}
@@ -221,32 +218,38 @@ footer {
 		}
 	}
 	#map {
+		height: 50%;
+		width: auto;
 		margin: 0 5% 5% 5%;
 	}
 	footer {
+		padding: 0 0 0 0;
 		div {
-			div {
-				padding: 1% 0 0 0;
-				h4 {
-					padding: 1% 0 1% 0;
-					font-weight: 500;
-					font-size: 1.5rem;
+			padding: 1% 0.0rem 1% 0.0rem;
+		}
+		h4 {
+			font-size: 1.0rem !important;
+			padding: 3% 0 3% 0;
+		}
+		#footer-links-section {
+			.btn-social {
+				height: 50px; //5=3rem;
+				width: 50px;
+				font-size: 2.0rem;
+				margin: 0.0rem 0.5rem 0.0rem 0.5rem;
+				padding: 0.5rem 0.5rem 0.5rem; 
 				}
-				li {
-					display: inline-block;
-					.link-icon {
-						height: 50px;
-						width: 50px;
-					}
-				}
-				.copyright {
-					font-size: 1.25rem;
-					font-weight: 300;
-				}
+		
+		#footer-copyright-section {
+			padding: 1% 0 1% 0;
+			#copyright-text {
+				color: $tertiary;
+				font-size: 1.25rem;
+				font-weight: 300;
 			}
 		}
 	}
 	.hide-when-small {
 		display: none;
 	}
-}
+}}

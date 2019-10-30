@@ -1,3 +1,11 @@
+.grow {
+  transition: all .2s ease-in-out !important;
+}
+
+.grow:hover {
+  transform: scale(1.15);
+}
+
 body,
 html {
   height: 100%;
@@ -17,7 +25,6 @@ html a:hover {
 
 #omar-nav {
   background-color: black;
-  color: black;
   display: flex;
   flex-direction: row;
   font-family: "Montserrat", sans-serif;
@@ -31,27 +38,19 @@ html a:hover {
   color: white;
 }
 
-#omar-nav #navbar-logo.grow {
-  transition: all .2s ease-in-out;
-}
-
 #omar-nav #navbar-logo.grow:hover {
   transform: scale(1.33);
   filter: invert(87%) sepia(53%) saturate(4264%) hue-rotate(348deg) brightness(85%) contrast(107%);
 }
 
-#omar-nav #navbar-brand a {
+#omar-nav .navbar-brand a {
   text-transform: uppercase;
   font-size: 1.75rem;
   font-weight: 700;
 }
 
-#omar-nav #navbar-brand.grow {
-  transition: all .2s ease-in-out;
-}
-
-#omar-nav #navbar-brand.grow:hover {
-  transform: scale(1.15);
+#omar-nav .navbar-brand.grow:hover {
+  color: #6d0707;
 }
 
 #info-header {
@@ -101,85 +100,78 @@ html a:hover {
 }
 
 footer {
-  display: flex;
-  flex-basis: auto;
-  padding: 0 0 0 0;
+  flex-shrink: 0;
+  padding: 0 0 1% 0;
   background-color: black;
   color: white;
   place-content: center;
-  align-content: center;
-  justify-content: center;
   text-align: center;
 }
 
-footer div div {
-  padding: 1.0rem 0.0rem 1.0rem 0.0rem;
-}
-
-footer div h4 {
-  text-transform: uppercase;
-  padding: 3% 0 3% 0;
-  font-weight: 700;
-}
-
-footer div a {
+footer a {
   color: white;
 }
 
-footer div ul {
-  padding: 0 0 0 0;
-}
-
-footer div ul li {
-  display: inline-block;
-}
-
-footer div ul li .link-icon {
-  width: 50px;
-  justify-content: center;
-  height: 50px;
-  font-size: 1.5rem;
-  display: inline-flex;
+footer a:hover {
   color: #6d0707;
-  border: 0.2rem solid #6d0707;
-  border-radius: 50%;
-  background-color: #e6e6e6;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+footer div {
+  padding: 1% 0.0rem 1% 0.0rem;
+}
+
+footer h4 {
+  text-transform: uppercase;
+  padding: 3% 0 3% 0;
+}
+
+footer #footer-links-section .btn-social {
+  color: #6d0707;
   align-items: center;
+  background-color: #e6e6e6;
+  border-radius: 50%;
+  border: 0.2rem solid #6d0707;
+  display: inline-flex;
+  font-size: 2.5rem;
+  height: 65px;
+  justify-content: center;
+  margin: 0.0rem 0.5rem 0.0rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem;
 }
 
-footer div ul li .link-icon.grow {
-  transition: all .2s ease-in-out;
-}
-
-footer div ul li .link-icon.grow:hover {
+footer #footer-links-section .btn-social.grow:hover {
   background-color: #cccccc;
   border-color: #550505;
   color: #550505;
   font-weight: bold;
-  transform: scale(1.25);
 }
 
-footer div ul li .link-icon:active, footer div ul li .link-icon:focus {
+footer #footer-links-section:active, footer #footer-links-section:focus {
   background-color: #bfbfbf;
   border-color: #3d0404;
   color: #3d0404;
 }
 
-footer div ul li .link-icon.active {
+footer #footer-links-section.active {
   background-color: #b3b3b3;
   border-color: #250202;
   color: #250202;
 }
 
-footer div a.copyright {
-  text-decoration: none;
+footer #footer-copyright-section {
+  background-color: black;
   color: #6d0707;
-  font-size: 1.0rem;
-  position: relative;
+  padding: 1% 0 1% 0;
+  text-align: center;
+  place-content: center;
 }
 
-footer div a.copyright:hover {
-  font-weight: bold;
+footer #footer-copyright-section #copyright-text {
+  color: #6d0707;
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 
 @media screen and (min-width: 0px) and (max-width: 768px) {
@@ -194,8 +186,8 @@ footer div a.copyright:hover {
     width: 100px;
     height: auto;
   }
-  #omar-nav #navbar-brand a {
-    font-size: 0.75rem;
+  #omar-nav .navbar-brand a {
+    font-size: 0.75rem !important;
     transition: font-size 0.3s;
   }
   #info-header h1 {
@@ -205,28 +197,36 @@ footer div a.copyright:hover {
     font-size: 0.85rem;
   }
   #map {
+    height: 50%;
+    width: auto;
     margin: 0 5% 5% 5%;
   }
-  footer div div {
-    padding: 1% 0 0 0;
+  footer {
+    padding: 0 0 0 0;
   }
-  footer div div h4 {
-    padding: 1% 0 1% 0;
-    font-weight: 500;
-    font-size: 1.5rem;
+  footer div {
+    padding: 1% 0.0rem 1% 0.0rem;
   }
-  footer div div li {
-    display: inline-block;
+  footer h4 {
+    font-size: 1.0rem !important;
+    padding: 3% 0 3% 0;
   }
-  footer div div li .link-icon {
+  footer #footer-links-section .btn-social {
     height: 50px;
     width: 50px;
+    font-size: 2.0rem;
+    margin: 0.0rem 0.5rem 0.0rem 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem;
   }
-  footer div div .copyright {
+  footer #footer-links-section #footer-copyright-section {
+    padding: 1% 0 1% 0;
+  }
+  footer #footer-links-section #footer-copyright-section #copyright-text {
+    color: #6d0707;
     font-size: 1.25rem;
     font-weight: 300;
   }
-  .hide-when-small {
+  footer .hide-when-small {
     display: none;
   }
 }
