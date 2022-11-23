@@ -20,7 +20,7 @@
 	},
 	"homepage": "https://github.com/Ohmarr/Leaflet_Geological_Vizualization_USGS#readme",
 	"devDependencies": {
-		"browser-sync": "^2.26.7",
+		"browser-sync": "^2.27.10",
 		"cssnano": "^4.1.10",
 		"gulp": "^4.0.2",
 		"gulp-clean-css": "^4.2.0",
